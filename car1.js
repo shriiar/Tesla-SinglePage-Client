@@ -144,6 +144,8 @@ const cartItems = () => {
     const cart = getCars();
     const cartDom = document.getElementById('cart');
     const cartCost = document.getElementById('cart-cost');
+    const emptyCart = document.getElementById('empty-cart');
+    emptyCart.innerHTML = "";
     let totalCost = 0,
         cost = 0,
         tax = 0,
@@ -177,10 +179,17 @@ const cartItems = () => {
           <h3>Tax: $<span>${tax}</span></h3>
           <h3>Shipping: $<span>${shipping}</span></h3>
           <h3>Total Cost: $<span>${totalCost}</span></h3>
-          <button class="button-33" onClick="EventClear()">Clear Cart</button>
+          <button class="button-2" onClick="EventClear()">Clear Cart</button>
           </div>
         `
         cartCost.appendChild(div1);
+    }
+    else{
+        let div = document.createElement("div");
+        div.innerHTML = `
+            <h1 class="text-center text-danger">Looks Like Cart Is Empty :(</h1>
+        `
+        emptyCart.appendChild(div);
     }
 }
 
